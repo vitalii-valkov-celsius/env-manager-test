@@ -1,0 +1,18 @@
+name: Deploy
+on:
+  push:
+    # branches:
+    #   - develop
+
+# permissions:
+#   contents: read
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: ./.github/actions/create-environment
+        with:
+          environment-manager-endpoint:
+            { { secrets.PE_ENVIRONMENT_MANAGER_ENDPOINT } }
+          name: new-env

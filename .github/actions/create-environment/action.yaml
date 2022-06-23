@@ -1,0 +1,26 @@
+name: "Create environment"
+inputs:
+  environment-manager-endpoint:
+    description: "Environment Manager endpoint"
+    required: true
+  name:
+    description: "Environment name"
+    required: true
+outputs:
+  upload-url:
+    description: "Upload url for TF archive"
+    value: ${{ steps.create-environment.outputs.upload-url }}
+runs:
+  using: "composite"
+  steps:
+    - id: create-environment
+      run: |
+        UPLOAD_URL=($(curl \
+        --header "Content-Type: application/json" \
+        --request POST \
+        --data "{\"repo_name\":\"{{ github.repository }}\", \"environment_name\":\"{{ inputs.name }}\" }" \
+        {{ inputs.environment-manager-endpoint }}/api/v1/environments \
+        | jq -r '."upload_url"'))
+
+        echo "::set-output name=upload-url::$(echo $UPLOAD_URL)"
+      shell: bash
