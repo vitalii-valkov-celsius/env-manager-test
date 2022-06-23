@@ -14,5 +14,5 @@ jobs:
       - uses: ./.github/actions/create-environment
         with:
           environment-manager-endpoint:
-            { { secrets.PE_ENVIRONMENT_MANAGER_ENDPOINT } }
+            {{ secrets.PE_ENVIRONMENT_MANAGER_ENDPOINT }}
           name: new-env
