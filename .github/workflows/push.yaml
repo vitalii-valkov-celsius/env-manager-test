@@ -11,6 +11,7 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v3
       - uses: ./.github/actions/create-environment
         with:
           environment-manager-endpoint: ${{ secrets.PE_ENVIRONMENT_MANAGER_ENDPOINT }}
