@@ -6,10 +6,6 @@ inputs:
   name:
     description: "Environment name"
     required: true
-outputs:
-  upload-url:
-    description: "Upload url for TF archive"
-    value: ${{ steps.create-environment.outputs.upload-url }}
 runs:
   using: "composite"
   steps:

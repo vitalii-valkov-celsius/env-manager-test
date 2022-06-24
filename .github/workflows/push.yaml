@@ -17,4 +17,3 @@ jobs:
         with:
           environment-manager-endpoint: ${{ secrets.PE_ENVIRONMENT_MANAGER_ENDPOINT }}
           name: new-env
-      - run: echo "${{ steps.create-environment.outputs.upload-url }}"
