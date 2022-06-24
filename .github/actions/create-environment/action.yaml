@@ -30,4 +30,3 @@ runs:
       with:
         content-directory: ./project
         upload-url: ${{ steps.create-environment.outputs.upload-url }}
-      shell: bash
