@@ -25,7 +25,7 @@ runs:
       shell: bash
 
     - id: upload-files
-      uses: celsius-actions/upload-terraform-archive@main
+      uses: celsius-actions/upload-terraform-archive@v1
       with:
         content-directory: ${{ inputs.content-directory }}
         upload-url: ${{ steps.create-environment.outputs.upload-url }}
