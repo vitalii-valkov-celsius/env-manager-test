@@ -6,6 +6,9 @@ inputs:
   name:
     description: "Environment name"
     required: true
+  content-directory:
+    description: "Path to the directory with TF files"
+    required: true
 runs:
   using: "composite"
   steps:
@@ -24,5 +27,5 @@ runs:
     - id: upload-files
       uses: ./.github/actions/upload-terraform-archive
       with:
-        content-directory: ./project
+        content-directory: ${{ inputs.content-directory }}
         upload-url: ${{ steps.create-environment.outputs.upload-url }}

@@ -17,3 +17,4 @@ jobs:
         with:
           environment-manager-endpoint: ${{ secrets.PE_ENVIRONMENT_MANAGER_ENDPOINT }}
           name: new-env
+          content-directory: ./project
