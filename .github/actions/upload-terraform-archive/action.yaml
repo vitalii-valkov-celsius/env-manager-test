@@ -18,7 +18,7 @@ runs:
           --header "Content-Type: application/octet-stream" \
           --request PUT \
           --data-binary @"$UPLOAD_FILE_NAME" \
-          $UPLOAD_URL
+          ${{ inputs.upload-url }}
 
         rm "$UPLOAD_FILE_NAME"
 
