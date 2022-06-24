@@ -13,7 +13,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - id: create-environment
-        uses: celsius-actions/create-environment
+        uses: celsius-actions/create-environment@main
         with:
           environment-manager-endpoint: ${{ secrets.PE_ENVIRONMENT_MANAGER_ENDPOINT }}
           name: new-env
